@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    PlayerShootController _playerShootController;
+    private PlayerShootController _playerShootController;
 
     public void Construct(PlayerShootController playerShootController)
-    { 
+    {
         _playerShootController = playerShootController;
     }
 
-    void Update()
+    private void Update()
     {
+        if (_playerShootController == null)
+            return;
+
+        if (Input.GetMouseButtonDown(0))
+            _playerShootController.BeginCharge();
+
         if (Input.GetMouseButton(0))
             _playerShootController.Charge();
 
