@@ -8,4 +8,6 @@ public static class CoreConstants
     public static float DeltaPlayerChargePercent = 10f;
 
     public static float DefaultPlayerBulletSpeed = 4;
+
+    public static float MinChargeForShoot = 3;
 }

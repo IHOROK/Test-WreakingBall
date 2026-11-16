@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameFlowController : MonoBehaviour
@@ -53,8 +54,13 @@ public class GameFlowController : MonoBehaviour
         _resultView.ShowEnd(reason);
     }
 
+    [Obsolete("This was a failsafe wincondition, " +
+        "now target detection is better so it probaly obsolete")]
     public void NotifyBombReachedGoal()
     {
+        //This was a failsafe wincondition,
+        //now target detection is better so it probaly obsolete
+        return;
         if (IsGameOver || _state == GameState.Traversing)
             return;
 
