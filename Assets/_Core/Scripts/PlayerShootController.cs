@@ -54,7 +54,7 @@ public class PlayerShootController : MonoBehaviour
             return;
 
         _isCharging = true;
-        _currentCharge = CoreConstants.MinChargeForShoot / 100f;
+        _currentCharge = 0;
         _previewBullet = Instantiate(bulletPrefab, _playerTransform.position, Quaternion.identity);
         _previewBullet.BeginPreview();
         UpdatePreview();
@@ -67,8 +67,8 @@ public class PlayerShootController : MonoBehaviour
 
         float minSize = CoreConstants.MinLosePlayerSizePercent / 100f;
         float available = Mathf.Max(0f, _remainingSize - minSize);
-        float amount = _currentCharge < CoreConstants.MinChargeForShoot/100f
-            ? CoreConstants.MinChargeForShoot/100f
+        float amount = _currentCharge < CoreConstants.MinChargeForShoot / 100f
+            ? CoreConstants.MinChargeForShoot / 100f
             : Mathf.Min(Time.deltaTime * CoreConstants.DeltaPlayerChargePercent / 100f, available);
         _currentCharge += amount;
         _remainingSize -= amount;
